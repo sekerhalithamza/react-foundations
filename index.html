@@ -9,14 +9,20 @@
     <script type="text/jsx">
       const app = document.getElementById("app")
 
-      function Header() {
-        return (<h1>React Foundations for Nextjs</h1>)
+      function Header(props) {
+    return <h1>{props.title}</h1>
       }
 
       function HomePage() {
+        const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
         return (
           <div>
-            <Header />
+            <Header title="React Foundations for Nextjs" />
+            <ul>
+              {names.map(el => (
+                <li key={el}>{el}</li>
+              ))}
+            </ul>
           </div>
         )
       }
