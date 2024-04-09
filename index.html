@@ -8,13 +8,20 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/jsx">
       const app = document.getElementById("app")
+      
 
       function Header(props) {
-    return <h1>{props.title}</h1>
+        return <h1>{props.title}</h1>
       }
 
       function HomePage() {
+        const [likes, setLikes] = React.useState(0)  
         const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
+
+        function handleClick() {
+          setLikes(likes + 1)
+          console.log("One more click")
+        } 
         return (
           <div>
             <Header title="React Foundations for Nextjs" />
@@ -23,6 +30,7 @@
                 <li key={el}>{el}</li>
               ))}
             </ul>
+            <button onClick={handleClick}>Like{likes}</button>
           </div>
         )
       }
